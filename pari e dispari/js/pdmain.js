@@ -6,19 +6,25 @@ Sommiamo i due numeri Stabiliamo se la somma dei due numeri è pari o dispari (u
 */
 
 // variabili
-let user, pc, numberAddition;
+let user, pc, numberAddition, userChoice;
 
 // ricevere input bottone dello user
 submit.onclick = function () {
 
-    // user deve inserire 
-    user = parseInt(randomIntFromInterval(1, 5));
+    // valori numerici
+    user = document.getElementById("user-number").value;
     pc = parseInt(randomIntFromInterval(1, 5));
 
 
-    // output risultati
-    document.getElementById("user-dice").innerText = user;
-    document.getElementById("pc-dice").innerText = pc;
+
+    // scelta pari o dispari
+    userChoice = document.querySelector('input[name="even-or-odd"]:checked').value;
+
+
+
+    // output numeri user e pc
+    document.getElementById("user-value").innerText = user;
+    document.getElementById("pc-value").innerText = pc;
 
 
 
@@ -26,18 +32,23 @@ submit.onclick = function () {
     // somma valori
     numberAddition = (user + pc);
 
+
+
+    // vediamo se la somma è pari
     const result = isItEven(numberAddition);
 
     console.log(result);
     
     
-    if (result == 1) {
 
-        document.getElementById("result-of-roll").innerText = "User wins";
+    // ciclo per selezionare il risultato di chi vince
+    if ((result == Boolean(true) && userChoice == 1) || (result == Boolean(false) && userChoice == 0)) {
+
+        document.getElementById("result-game").innerText = "User wins";
 
     } 
     else {
-        document.getElementById("result-of-roll").innerText = "Pc wins";
+        document.getElementById("result-game").innerText = "Pc wins";
 
     }
 }
@@ -50,6 +61,5 @@ function randomIntFromInterval(min, max) {
 }
 
 function isItEven(num) { 
-    return num % 2 === 0;
+    return num % 2 === 1;
 }
-

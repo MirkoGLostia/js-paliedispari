@@ -18,8 +18,19 @@
     <main id="main-container">
         <!-- trow the dice -->
         <section id="gamble-start">
+            <!-- numero scelto dall'utente -->
+            <input id="user-number" type="number" min="1" max="5"> <br>
+
+            <!-- scelta pari o dispari -->
+            <label for="even">PARI</label>
+            <input type="radio" id="even" name="even-or-odd" value="1">
+
+            <label for="odd">DISPARI</label>
+            <input type="radio" id="odd" name="even-or-odd" value="0"> <br>
+
+            <!-- invio scelte -->
             <button id="submit" type="button">
-                tira il dado
+                invia valore
             </button>
         </section>
 
@@ -29,7 +40,7 @@
                 <h2>
                     Player
                 </h2>
-                <span id="user-dice">
+                <span id="user-value">
 
                 </span>
             </div>
@@ -37,7 +48,7 @@
                 <h2>
                     PC
                 </h2>
-                <span id="pc-dice">
+                <span id="pc-value">
 
                 </span>
             </div>
@@ -46,7 +57,7 @@
         <!-- winner -->
         <section id="winner-section">
             <div>
-                <span id="result-of-roll">
+                <span id="result-game">
                     Who will win?
                 </span>
             </div>
