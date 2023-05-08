@@ -4,18 +4,40 @@ Chiedere all’utente di inserire una parola
 Creare una funzione per capire
 */
 
+// variabili
+let wordCheck;
+
+
+
 // contenitore parola al contrarioi vuota
 let reverseParolaUtente = "";
 
 
 
-// chiedere parola utente
-const parolaUtente = prompt("la tua parola");
 
 
 
-// risultato della funzione
-let wordCheck = palindromeCheck(parolaUtente, reverseParolaUtente);
+
+submit.onclick = function () {
+
+
+
+    // chiedere parola utente
+    const parolaUtente = document.getElementById("parola-utente").value;
+
+
+
+    // risultato funzione
+    wordCheck = palindromeCheck(parolaUtente, reverseParolaUtente);
+
+
+    // stampa nella finestra
+    document.getElementById("risposta").innerText = wordCheck;
+
+}
+
+
+
 
 
 
@@ -40,11 +62,6 @@ function palindromeCheck (word, reverse) {
         result = "palindromo";
 
         console.log("palindromo");
-    
-    }
-    else {
-    
-        console.log("non palindromo");
     
     }
 
