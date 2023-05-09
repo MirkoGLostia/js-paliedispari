@@ -25,14 +25,20 @@ submit.onclick = function () {
     // chiedere parola utente
     const parolaUtente = document.getElementById("parola-utente").value;
 
+    const parolaUtenteNospace = noSpace(parolaUtente);
+
 
 
     // risultato funzione
-    wordCheck = palindromeCheck(parolaUtente, reverseParolaUtente);
+    wordCheck = palindromeCheck(parolaUtenteNospace, reverseParolaUtente);
 
 
     // stampa nella finestra
     document.getElementById("risposta").innerText = wordCheck;
+
+    console.log(parolaUtente);
+    console.log(parolaUtenteNospace);
+    console.log(reverseParolaUtente);
 
 }
 
@@ -50,9 +56,9 @@ function palindromeCheck (word, reverse) {
     // ciclo per invertire parola
     for (let i = (word.length - 1); i >= 0; i--) {
         
-        const lettere = word.charAt(i);
+        let lettere = word.charAt(i);
     
-        if (lettere = "") {
+        if (lettere == " ") {
             
             i--
 
@@ -74,6 +80,34 @@ function palindromeCheck (word, reverse) {
     }
 
     return result
+
+}
+
+function noSpace (word) {
+
+    let wordNoSpace = "";
+
+    // ciclo per invertire parola
+    for (let i = 0; i < word.length; i++) {
+        
+        let lettere = word.charAt(i);
+    
+        if (lettere == " ") {
+            
+            i++
+
+            lettere = word.charAt(i);
+
+        }
+
+        wordNoSpace += lettere;
+
+        
+    }
+
+    const result = wordNoSpace;
+
+    return result;
 
 }
 
