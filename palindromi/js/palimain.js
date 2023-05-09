@@ -57,14 +57,6 @@ function palindromeCheck (word, reverse) {
     for (let i = (word.length - 1); i >= 0; i--) {
         
         let lettere = word.charAt(i);
-    
-        if (lettere == " ") {
-            
-            i--
-
-            lettere = word.charAt(i);
-
-        }
 
         reverse += lettere;
         
